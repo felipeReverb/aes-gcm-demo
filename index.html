@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>AES-GCM Encryption/Decryption Test</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&family=Roboto:wght@100&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+
+<body>
+
+    <div class="main-container">
+
+        <div class="encrypt-box">
+            <h1>AES-GCM Encryption-Decryption Tool</h1>
+            <label for="originalString">Original String:</label>
+            <textarea id="originalString"></textarea>
+
+            <label for="key">Key: </label>
+            <div class="key-management">
+                <input type="text" id="key">
+                <button class="btn-genKey" onclick="generateAndSetKey()">Generate Key</button>
+
+            </div>
+
+            <label for="key">IV: </label>
+            <div class="key-management">
+                <input type="text" id="iv" class="iv">
+                <button class="btn-genKey" onclick="generateAndSetIV()">Generate Iv</button>
+
+            </div>
+
+
+            <button onclick="encryptInput()">Encrypt</button>
+
+
+            <div class="result" id="resultDiv">
+                <h2>Result:</h2>
+                <p><label>Encrypted Text:</label></p>
+                <textarea id="encryptedText" readonly></textarea>
+            </div>
+
+        </div>
+
+        <div class="decrypt-box">
+            <h1>AES-GCM Decryption</h1>
+
+
+            <label for="encryptedText2">Encrypted Text:</label>
+            <textarea id="encryptedText2"></textarea>
+
+            <label for="key2">Key:</label>
+            <input type="text" id="key2">
+
+            <label for="authenticationTag2">IV:</label>
+            <input type="text" id="authenticationTag2">
+            <button onclick="decryptInput()">Decrypt</button>
+
+            <div class="result" id="resultDiv2">
+                <h2>Result:</h2>
+                <p><label>Decrypted Text:</label></p>
+                <textarea id="decryptedText" readonly></textarea>
+            </div>
+
+            <script src="./js/aes-gcm.js"></script>
+
+        </div>
+
+        <div>
+            <button onclick="executeTest3()">Example 4</button>
+
+        </div>
+    </div>
+</body>
+
+</html>
